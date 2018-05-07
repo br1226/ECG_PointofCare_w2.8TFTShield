@@ -6,8 +6,8 @@ a second time the collection pauses and will pick right back up if the button is
 
 
 The circuit:
- The LED input is connected to the Arduino UNO digital 3 pin and is a green LED grounded via a 220ohm resistor
- The button input is a switch connected to the Arduino Uno digital 2 is a common switch given 3.3V and grounded via a 220ohm resistor 
+ The LED input is connected to the Arduino UNO digital 2 pin and is a green LED grounded via a 220ohm resistor
+ The button input is a switch connected to the Arduino Uno digital 3 is a common switch given 3.3V and grounded via a 220ohm resistor 
  The potentiometer is connected to the Arduino Uno analog pin 5 and is adjusting the voltage between ground and 3.3V
  The ECG input is a BITalino ECG sensor connected to the 3.3V, ground, and Arduino Uno analog pin 4
 
@@ -28,16 +28,13 @@ Tutorial: https://www.instructables.com/id/Point-of-Care-ECG-Mat/
  */
 
 
-
-//ECG Variables 
-const int ECG = A4;
-int sensorValue = 0;
-
-//Other Variables 
-const int buttonPin = 2;
-const int LEDgreen = 3;
+//Input Variables 
+const int ECG = A4;//set ECG sensor value, connected to purple wire
+const int buttonPin = 3;//set Button to pin 3
+const int LEDgreen = 2;//set LED to pin 2
 
 //Heart Rate Variables 
+int sensorValue = 0;//initial sensor value is set to zero
 long prevBeatTime = 0; // time of the last recorded heart beat
 long beatTime = 0;//time of the most recently recorded beat
 float beatInterval = 0;//time between the current beat and previous beat
@@ -72,11 +69,11 @@ int previouspoint=20; //keeps track of the previous ECG signal value
 int previousThreshold=20; //keeps track of the previous threshold signal value
 
 // Use hardware SPI (on Uno, #13, #12, #11) and the above for CS/DC
-Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC);
+Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC);//define the screen as tft
 
 void setup() {
 
- Serial.begin(115200);//begin the serial montior
+ Serial.begin(115200);//begin the serial monitor
 
  //Set pin modes for the LED and button
  pinMode(LEDgreen, OUTPUT);
