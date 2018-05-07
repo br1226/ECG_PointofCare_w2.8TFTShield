@@ -24,7 +24,7 @@ Date Created: May 6, 2018
 By Lily Gaudreau and Brianne Roper
 With contributions from Dr. Emily Farrar 
 
-Tutorial: 
+Tutorial: https://www.instructables.com/id/Point-of-Care-ECG-Mat/
  */
 
 
